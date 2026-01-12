@@ -110,3 +110,73 @@
 // }
 
 // console.log(flaternArray(arr));
+
+
+// linked list
+
+class Node {
+    constructor(val){
+        this.val = val;
+        this.next = null;
+    }
+}
+
+class LL {
+    constructor(){
+        this.head = null;
+    }
+    insert(val){
+        let newNode  = new Node(val);
+        if(!this.head){
+            this.head = newNode;
+            return;
+        }
+        let current = this.head;
+        while(current.next){            
+            current = current.next;
+        }
+        current.next = newNode;
+        return;
+    }
+    print(){
+        let current = this.head;
+        while(current){
+            console.log(current.val)
+            current = current.next;
+        }
+    }
+    findMiddle(){
+        let fast = this.head;
+        let slow = this.head;
+
+        while(fast && fast.next){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow.val;
+    }
+}
+let ll = new LL();
+ll.insert(9);
+ll.insert(3);
+ll.insert(4);
+ll.insert(2);
+// ll.insert(7);
+ll.insert(5);
+// ll.insert(5);
+// ll.print();
+console.log(ll.findMiddle());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
